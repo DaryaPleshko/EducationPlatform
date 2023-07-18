@@ -1,5 +1,5 @@
 import { pool } from '../db';
-import { iUser } from '../interfaces/index'
+import { iUser } from '../interfaces/index';
 
 const createUserDB = async (name: string, surname: string, email: string, pwd: string): Promise<iUser[]> => {
     const client = await pool.connect();

@@ -1,5 +1,5 @@
 import { createUserDB, getAllUsersDB, getUserByIdDB, updateUserDB, deleteUserDB } from '../repository/user.repository';
-import { iUser } from '../interfaces/index'
+import { iUser } from '../interfaces/index';
 
 const createUser = async (name: string, surname: string, email: string, pwd: string): Promise<iUser[]> => {
     const data = await createUserDB(name, surname, email, pwd);

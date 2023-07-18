@@ -1,9 +1,14 @@
 interface iUser {
-    id: string
+    id: string;
     name: string;
     surname: string;
     email: string;
     pwd: string;
 }
 
-export { iUser }
+interface iCourse {
+    id: string;
+    course: string;
+}
+
+export { iUser, iCourse }
