@@ -1,4 +1,4 @@
-import { getAllCourseDB, getCourseByIdDB, createCourseDB } from '../repository/course.repository';
+import { getAllCourseDB, getCourseByIdDB, createCourseDB, updateCourseDB, deleteCourseByIdDB } from '../repository/course.repository';
 import { iCourse } from '../interfaces/index';
 
 
@@ -17,4 +17,14 @@ const createCourse = async (course: string): Promise<iCourse[]> => {
     return data;
 }
 
-export { getAllCourse, getCourseById, createCourse }
+const updateCourse = async (id: string, course: string): Promise<iCourse[]> => {
+    const data = await updateCourseDB(id, course);
+    return data;
+}
+
+const deleteCourseById = async (id: string): Promise<iCourse[]> => {
+    const data = await deleteCourseByIdDB(id);
+    return data;
+}
+
+export { getAllCourse, getCourseById, createCourse, updateCourse, deleteCourseById }
