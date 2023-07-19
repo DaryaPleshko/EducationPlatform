@@ -29,7 +29,7 @@ route.put('/:id', async (request: Request, response: Response): Promise<void> =>
 route.delete('/:id', async (request: Request, response: Response): Promise<void> => {
     const { id } = request.params;
     const data = await deleteCourseById(id);
-    response.send(data);
+    response.send(data);   
 });
 
-export default route;
+export default route;   
