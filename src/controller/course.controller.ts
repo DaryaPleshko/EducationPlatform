@@ -32,4 +32,4 @@ route.delete('/:id', async (request: Request, response: Response): Promise<void>
     response.send(data);   
 });
 
-export default route;      
+export default route;         
