@@ -22,31 +22,52 @@ const getCourseByIdDB = async (id: string): Promise<iCourse[]> => {
 
 const createCourseDB = async (course: string): Promise<iCourse[]> => {
     const client = await pool.connect();
-
-    const sql = ` INSERT INTO courses (course)
+    try {
+        await client.query('BEGIN');
+        const sql = ` INSERT INTO courses (course)
     VALUES ($1) RETURNING *`;
-    const gettingSql = (await client.query(sql, [course])).rows;
+        const gettingSql = (await client.query(sql, [course])).rows;
 
-    return gettingSql;
+        await client.query('COMMIT');
+
+        return gettingSql;
+    } catch (error) {
+        await client.query('ROLLBACK');
+        return [];
+    };
 }
 
 const updateCourseDB = async (id: string, course: string): Promise<iCourse[]> => {
     const client = await pool.connect();
-
-    const sql = `UPDATE courses SET course = $1
+    try {
+        await client.query('BEGIN');
+        const sql = `UPDATE courses SET course = $1
     WHERE id = $2 RETURNING *`;
-    const gettingSql = (await client.query(sql, [course, id])).rows;
+        const gettingSql = (await client.query(sql, [course, id])).rows;
 
-    return gettingSql;
+        await client.query('COMMIT');
+
+        return gettingSql;
+    } catch (error) {
+        await client.query('ROLLBACK');
+        return [];
+    };
 }
 
 const deleteCourseByIdDB = async (id: string): Promise<iCourse[]> => {
     const client = await pool.connect();
+    try {
+        await client.query('BEGIN');
+        const sql = `DELETE FROM courses WHERE id = $1 RETURNING *`;
+        const gettingSql = (await client.query(sql, [id])).rows;
 
-    const sql = `DELETE FROM courses WHERE id = $1 RETURNING *`;
-    const gettingSql = (await client.query(sql, [id])).rows;
+        await client.query('COMMIT');
 
-    return gettingSql;
+        return gettingSql;
+    } catch (error) {
+        await client.query('ROLLBACK');
+        return [];
+    };
 }
 
 export { getAllCourseDB, getCourseByIdDB, createCourseDB, updateCourseDB, deleteCourseByIdDB }

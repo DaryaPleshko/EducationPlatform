@@ -3,12 +3,19 @@ import { iUser } from '../interfaces/index';
 
 const createUserDB = async (name: string, surname: string, email: string, pwd: string): Promise<iUser[]> => {
     const client = await pool.connect();
-    const sql = `
+    try {
+        await client.query('BEGIN');
+        const sql = `
     INSERT INTO users (name, surname, email, pwd)
     VALUES ($1, $2, $3, $4) RETURNING *`;
 
-    const gettingSql = (await client.query(sql, [name, surname, email, pwd])).rows;
-    return gettingSql;
+        const gettingSql = (await client.query(sql, [name, surname, email, pwd])).rows;
+        await client.query('COMMIT');
+        return gettingSql;
+    } catch (error) {
+        await client.query('ROLLBACK');
+        return [];
+    };
 }
 
 const getAllUsersDB = async (): Promise<iUser[]> => {
@@ -31,21 +38,35 @@ const getUserByIdDB = async (id: string): Promise<iUser[]> => {
 
 const updateUserDB = async (id: string, name: string, surname: string, email: string, pwd: string): Promise<iUser[]> => {
     const client = await pool.connect();
-
-    const sql = `UPDATE users SET name = $1, surname = $2, email = $3, pwd = $4
+    try {
+        await client.query('BEGIN');
+        const sql = `UPDATE users SET name = $1, surname = $2, email = $3, pwd = $4
     WHERE id = $5 RETURNING *`;
-    const gettingSql = (await client.query(sql, [name, surname, email, pwd, id])).rows;
+        const gettingSql = (await client.query(sql, [name, surname, email, pwd, id])).rows;
 
-    return gettingSql;
+        await client.query('COMMIT');
+
+        return gettingSql;
+    } catch (error) {
+        await client.query('ROLLBACK');
+        return [];
+    };
 }
 
 const deleteUserDB = async (id: string): Promise<iUser[]> => {
     const client = await pool.connect();
+    try {
+        await client.query('BEGIN');
+        const sql = `DELETE FROM users WHERE id = $1 RETURNING *`;
+        const gettingSql = (await client.query(sql, [id])).rows;
 
-    const sql = `DELETE FROM users WHERE id = $1 RETURNING *`;
-    const gettingSql = (await client.query(sql, [id])).rows;
+        await client.query('COMMIT');
 
-    return gettingSql;
+        return gettingSql;
+    } catch (error) {
+        await client.query('ROLLBACK');
+        return [];
+    };
 }
 
 export { createUserDB, getAllUsersDB, getUserByIdDB, updateUserDB, deleteUserDB };
