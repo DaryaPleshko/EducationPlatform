@@ -1,16 +1,16 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import { createUser, authorizationUser } from '../service/api.service';
 import buildresponse from '../helper/buildresponse';
 
 const route = express.Router();
 
-route.post('/reg', async (req, res): Promise<void> => {
+route.post('/reg', async (request: Request, response: Response): Promise<void> => {
     try {
-        const { name, surname, email, pwd } = req.body;
+        const { name, surname, email, pwd } = request.body;
         const data = await createUser(name, surname, email, pwd)
-        buildresponse(res, 200, data);
+        buildresponse(response, 200, data);
     } catch (error: any) {
-        buildresponse(res, 404, error.message);
+        buildresponse(response, 404, error.message);
     };
 
 });
