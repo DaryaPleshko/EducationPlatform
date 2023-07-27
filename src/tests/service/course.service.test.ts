@@ -23,6 +23,20 @@ describe('getAllCourse:', () => {
     });
 });
 
+describe('getCourseById:', () => {
+    test('- test 1', async () => {
+        const repOfFunction = jest.spyOn(repository, 'getCourseByIdDB');
+        repOfFunction.mockResolvedValue([{ id: '1', course: 'ts' }]);
+
+        const result = await getCourseById('1');
+        
+        expect(repOfFunction).toHaveBeenCalled();
+        expect(result[0].id).toBe('1');
+        expect(result.length).toBe(1);
+        expect(result).toEqual([{ id: '1', course: 'ts' }]);
+    });
+});
+
 describe('createCourse:', () => {
     test('- test 1', async () => {
         const reoOfFunction = jest.spyOn(repository, 'createCourseDB');
