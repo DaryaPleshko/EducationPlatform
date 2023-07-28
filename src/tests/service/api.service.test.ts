@@ -18,16 +18,17 @@ describe('createUser:', () => {
         expect(mockUserCreate).toHaveBeenCalled();
         expect(mockHash).toHaveBeenCalled();
         expect(mockHash).toHaveBeenCalledWith('12345678', 2);
+        expect(result).toEqual([{ id: '1', name: 'dasha', surname: 'pleshko', email: 'dasha@mail.ru', pwd: 'njnwfwh#468$%^&(*6' }])
     });
 
     test('- test 2', async () => {
-        const mockUserByEmail = jest.spyOn(repository, 'getUserByEmailDB');
-        mockUserByEmail.mockResolvedValue([]);
+        const mockUserByEmail = jest.spyOn(repository, 'getUserByEmailDB')
+        mockUserByEmail.mockResolvedValue([{ id: '1', name: 'dasha', surname: 'pleshko', email: 'dasha@mail.ru', pwd: 'njnwfwh#468$%^&(*6' }]);
         try {
-            await authorizationUser('dasha@mail.ru', 'njnwfwh#468$%^&(*6');
+            await createUser('dasha', 'pleshko', 'dasha@mail.ru', '12345678')
         } catch (error: any) {
             expect(mockUserByEmail).toHaveBeenCalled();
-            expect(error.message).toBe('такого пользователя нет')
+            expect(error.message).toBe('такой email уже есть')
         }
     });
 });
@@ -46,4 +47,28 @@ describe('authorizationUser:', () => {
         expect(hashMock).toHaveBeenCalledWith('njnwfwh#468$%^&(*6', 'njnwfwh#468$%^&(*6')
         expect(result).toEqual([{ id: '1', name: 'dasha', surname: 'pleshko', email: 'dasha@mail.ru', pwd: 'njnwfwh#468$%^&(*6' }])
     });
+
+    test('- test 2', async () => {
+        const mockUserByEmail = jest.spyOn(repository, 'getUserByEmailDB');
+        mockUserByEmail.mockResolvedValue([]);
+        try {
+            await authorizationUser('dasha@mail.ru', 'njnwfwh#468$%^&(*6');
+        } catch (error: any) {
+            expect(mockUserByEmail).toHaveBeenCalled();
+            expect(error.message).toBe('такого пользователя нет')
+        }
+    });
+
+    test('', async () => {
+        const mockUserByEmail = jest.spyOn(repository, 'getUserByEmailDB');
+        const hashMock = jest.spyOn(bcrypt, 'compare');
+        mockUserByEmail.mockResolvedValue([{ id: '1', name: 'dasha', surname: 'pleshko', email: 'dasha@mail.ru', pwd: 'njnwfwh#468$%^&(*6' }]);
+        hashMock.mockResolvedValue(false);
+        try {
+            await authorizationUser('dasha@mail.ru', 'njnwfwh#468$%^&(*6');
+        } catch (error: any) {
+            expect(mockUserByEmail).toHaveBeenCalled();
+            expect(error.message).toBe('pwd не совпадают')
+        }
+    })
 });
