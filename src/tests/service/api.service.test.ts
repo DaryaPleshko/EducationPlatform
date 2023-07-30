@@ -59,7 +59,7 @@ describe('authorizationUser:', () => {
         }
     });
 
-    test('', async () => {
+    test('- test 3', async () => {
         const mockUserByEmail = jest.spyOn(repository, 'getUserByEmailDB');
         const hashMock = jest.spyOn(bcrypt, 'compare');
         mockUserByEmail.mockResolvedValue([{ id: '1', name: 'dasha', surname: 'pleshko', email: 'dasha@mail.ru', pwd: 'njnwfwh#468$%^&(*6' }]);

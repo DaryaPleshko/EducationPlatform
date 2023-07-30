@@ -17,6 +17,17 @@ describe('createUser:', () => {
         expect(result.length).toBe(1);
         expect(result).toEqual([{ id: '1', name: 'dasha', surname: 'pleshko', email: 'dasha@mail.ru', pwd: '12345678' }]);
     });
+
+    test(('test2'), async () => {
+        const repoFunction = jest.spyOn(repository, 'createUserDB');
+        repoFunction.mockResolvedValue([]);
+        try {
+            await createUser('darya', 'pleshhko', 'august3@mail.ru', 'gfv3kg4');
+        } catch (error: any) {
+            expect(repoFunction).toHaveBeenCalled();
+            expect(error.message).toBe('БД не заполнена');
+        };
+    });
 });
 
 describe('getAllUsers:', () => {
@@ -44,6 +55,17 @@ describe('getAllUsers:', () => {
         ]);
         expect(result.length).toBe(2);
     });
+
+    test(('test2'), async () => {
+        const repoFunction = jest.spyOn(repository, 'getUserByIdDB');
+        repoFunction.mockResolvedValue([]);
+        try {
+            await getAllUsers();
+        } catch (error: any) {
+            expect(repoFunction).toHaveBeenCalled();
+            expect(error.message).toBe('такого id нет');
+        };
+    });
 });
 
 describe('getUserById:', () => {
@@ -57,6 +79,17 @@ describe('getUserById:', () => {
         expect(result[0].id).toBe('1');
         expect(result.length).toBe(1);
         expect(result).toEqual([{ id: '1', name: 'dasha', surname: 'pleshko', email: 'dasha@mail.ru', pwd: '12345678' }]);
+    });
+
+    test(('test2'), async () => {
+        const repoFunction = jest.spyOn(repository, 'getUserByIdDB');
+        repoFunction.mockResolvedValue([]);
+        try {
+            await getUserById('1');
+        } catch (error: any) {
+            expect(repoFunction).toHaveBeenCalled();
+            expect(error.message).toBe('данные не сохранены')
+        };
     });
 });
 
@@ -76,6 +109,17 @@ describe('updateUser:', () => {
         expect(result.length).toBe(1);
         expect(result).toEqual([{ id: '1', name: 'dasha', surname: 'pleshko', email: 'dasha@mail.ru', pwd: '12345678' }]);
     });
+
+    test(('test2'), async () => {
+        const repoFunction = jest.spyOn(repository, 'updateUserDB');
+        repoFunction.mockResolvedValue([]);
+        try {
+            await updateUser('1', 'Alina', 'Falei', 'august3@mail.ru', 'gfv3kg4');
+        } catch (error: any) {
+            expect(repoFunction).toHaveBeenCalled();
+            expect(error.message).toBe('такого id нет')
+        };
+    });
 });
 
 describe('deleteUser:', () => {
@@ -89,5 +133,16 @@ describe('deleteUser:', () => {
         expect(result[0].id).toBe('1');
         expect(result.length).toBe(1);
         expect(result).toEqual([{ id: '1', name: 'dasha', surname: 'pleshko', email: 'dasha@mail.ru', pwd: '12345678' }]);
+    });
+
+    test('test2', async () => {
+        const repoFunction = jest.spyOn(repository, 'deleteUserDB');
+        repoFunction.mockResolvedValue([]);
+        try {
+            await deleteUser('1');
+        } catch (error: any) {
+            expect(repoFunction).toHaveBeenCalled();
+            expect(error.message).toBe('такого id нет');
+        };
     });
 });
