@@ -20,7 +20,7 @@ describe('getAllCourseDB:', () => {
         expect(result.length).toBe(1);
         expect(result).toHaveLength(1);
         expect(result[0].id).toBe('1');
-        expect(result[0].course).toBe('js');
+        expect(result[0].course).toBe('js');   
     });
 });
 
