@@ -1,6 +1,11 @@
 .preview {
     display: flex;
     justify-content: space-between;
+    margin-top: 100px;
+}
+
+.preview .previewInfo {
+    width: 500px;
 }
 
 .preview .previewInfo .previewAbout {
@@ -11,9 +16,188 @@
 .preview .previewInfo h1 {
     color: var(--primaty-black, #000);
     font: 400 56px Dela Gothic One;
+    margin-top: 24px;
 }
 
 .preview .previewInfo .textInfo {
     color: var(--primaty-grey-dark, #757575);
     font: 600 18px Montserrat;
+    margin-top: 30px;
+}
+.preview .previewInfo .platforma {
+    width: 163px;
+}
+
+.preview .previewInfo .platforma .aboutPlatform {
+    color: #2B788B;
+    font: 700 16px Montserrat;
+    text-align: center;
+    border-radius: 100px;
+    background: var(--primaty-cyan-light, #C3DCE3);
+    padding: 14px 22px;
+    margin-top: 32px;
+}
+
+.preview .previewInfo .platforma .previewStudents {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    margin-top: 49px;
+}
+
+.preview .previewInfo .platforma .previewStudents .zipper {
+    background-image: url(./assets/Frame\ 35271.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 24px;
+    height: 30px;
+}
+
+.preview .previewInfo .platforma .previewStudents p {
+    color: #000;
+    font: 400 40px Dela Gothic One;
+}
+
+.preview .previewInfo .platforma .previewStudents .plus {
+    color: #2B788B;
+    font: 400 40px Dela Gothic One;
+}
+
+.preview .previewInfo .platforma p {
+    color: #585858;
+    font: 600 16px Montserrat;
+    text-align: center;
+}
+
+.previewImg {
+    background-image: url(./assets/Frame\ 25.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 550px;
+    height: 400px;
+    margin-top: 110px;
+}
+
+.learn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.learn .img {
+    width: 580px;
+    height: 445px;
+    background-image: url(./assets/image\ 8.png);
+}
+
+.learn .info h1 {
+    color: var(--primaty-black, #000);
+    font: 400 48px Dela Gothic One;
+}
+
+.learn .info p {
+    color: var(--primaty-grey-dark, #757575);
+    font: 600 18px Montserrat;
+    margin-top: 30px;
+}
+
+.learn .info .icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.learn .info .icon1 {
+    background-image: url(./assets/cross.png);
+    width: 131px;
+    height: 145px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.learn .info .icon2 {
+    background-image: url(./assets/micro.png);
+    width: 172px;
+    height: 145px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.knowledge {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.knowledge .info h1 {
+    color: var(--primaty-black, #000);
+    font: 400 48px Dela Gothic One;
+}
+
+.knowledge .info p {
+    color: var(--primaty-grey-dark, #757575);
+    font: 600 18px Montserrat;
+    margin-top: 30px;
+}
+
+.knowledge .info .btnKnow {
+    color: #2B788B;
+    font: 700 16px Montserrat;
+    padding: 14px 22px;
+    justify-content: center;
+    align-items: center;
+    gap: 19px;
+    border-radius: 100px;
+    background: var(--primaty-cyan-light, #C3DCE3);
+    width: 150px;
+    height: 45px;
+    margin-top: 34px;
+}
+
+.knowledge .img {
+    background-image: url(./assets/image\ 2.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 580px;
+    height: 485px;
+}
+
+.progress {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress .img {
+    background-image: url(./assets/image\ 1.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 680px;
+    height: 410px;
+}
+
+.progress .info h1 {
+    color: var(--primaty-black, #000);
+    font: 400 48px Dela Gothic One;
+}
+
+.progress .info p {
+    color: var(--primaty-grey-dark, #757575);
+    font: 600 18px Montserrat;
+    margin-top: 30px;
+}
+
+.progress .info .btnKnow {
+    color: var(--primaty-cyan-dark, #2B788B);
+    font: 700 16px Montserrat;
+    border-radius: 100px;
+    background-color: var(--primaty-cyan-light, #C3DCE3);
+    padding: 14px 22px;
+    justify-content: center;
+    align-items: center;
+    gap: 19px;
+    width: 150px;
+    height: 45px;
+    margin-top: 34px;
 }
