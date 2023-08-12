@@ -12,7 +12,7 @@ function Preview() {
                     <p className={style.textInfo}>Any subject, in any language, on any device, for all ages!</p>
 
                     <div className={style.platforma}>
-                        <div className={style.aboutPlatform}>About platform</div>
+                        <div className={style.aboutPlatform}>About platform</div>  
                         <div className={style.previewStudents}>
                             <div className={style.zipper}></div>
                             <p>600</p>
