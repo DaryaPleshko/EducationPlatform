@@ -1,4 +1,4 @@
-.bcg{
+.bcg {
     background: white;
 }
 
@@ -15,7 +15,11 @@
     font: 700 16px Montserrat;
 }
 
-
+.preview .previewAbout {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 
 .preview .previewInfo h1 {
     color: var(--primaty-black, #000);
@@ -99,6 +103,13 @@
     background-image: url(./assets/image\ 8.png);
 }
 
+.learn .info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 500px;
+}
+
 .learn .info h1 {
     color: var(--primaty-black, #000);
     font: 400 48px Dela Gothic One;
@@ -138,6 +149,12 @@
     align-items: center;
     width: 1220px;
     margin: 6% auto;
+}
+
+.knowledge .info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .knowledge .info h1 {
@@ -188,6 +205,12 @@
     background-size: contain;
     width: 680px;
     height: 410px;
+}
+
+.progress .info{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .progress .info h1 {
