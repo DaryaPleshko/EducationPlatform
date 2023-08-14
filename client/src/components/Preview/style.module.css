@@ -1,17 +1,21 @@
+.bcg{
+    background: white;
+}
+
 .preview {
     display: flex;
     justify-content: space-between;
     margin-top: 100px;
-}
-
-.preview .previewInfo {
-    width: 500px;
+    width: 1220px;
+    margin: 6% auto;
 }
 
 .preview .previewInfo .previewAbout {
     color: var(--primaty-cyan-dark, #2B788B);
     font: 700 16px Montserrat;
 }
+
+
 
 .preview .previewInfo h1 {
     color: var(--primaty-black, #000);
@@ -24,6 +28,7 @@
     font: 600 18px Montserrat;
     margin-top: 30px;
 }
+
 .preview .previewInfo .platforma {
     width: 163px;
 }
@@ -83,6 +88,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 1220px;
+    margin: auto;
+    padding: 6% 0;
 }
 
 .learn .img {
@@ -128,6 +136,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 1220px;
+    margin: 6% auto;
 }
 
 .knowledge .info h1 {
@@ -167,6 +177,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 1220px;
+    margin: auto;
+    padding: 6% 0;
 }
 
 .progress .img {
