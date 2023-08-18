@@ -1,0 +1,45 @@
+.authpage {
+    display: flex;
+    justify-content: space-between;
+    margin: 6% auto;
+    width: 1220px;
+}
+
+.authpage .info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.authpage .info h1 {
+    color: var(--primaty-black, #000);
+    font: 400 56px Dela Gothic One;
+}
+
+.authpage .info input {
+    width: 520px;
+    padding: 10px;
+    border-radius: 2px;
+    border: 1px solid var(--gray-gray-4, #CED4DA);
+    color: var(--gray-gray-5, #ADB5BD);
+    font: 400 20px Open Sans;
+}
+
+.authpage .info .btn {
+    width: 110px;
+    margin-top: 30px;
+    padding: 14px;
+    border-radius: 100px;
+    background: var(--primaty-cyan-dark, #2B788B);
+    color: #FFF;
+    text-align: center;
+    font: 700 16px Montserrat;
+}
+
+.authpage .img {
+    background-image: url(./assets/image\ 33.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 480px;
+    height: 320px;
+}

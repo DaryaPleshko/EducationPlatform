@@ -1,0 +1,47 @@
+.regpage {
+    display: flex;
+    justify-content: space-between;
+    margin: 6% auto;
+    width: 1220px;
+}
+
+.regpage .info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.regpage .info h1 {
+    color: var(--primaty-black, #000);
+    font: 400 56px Dela Gothic One;
+}
+
+.regpage .info input {
+    font: 400 20px Open Sans;
+    color: var(--gray-gray-5, #ADB5BD);
+    border-radius: 2px;
+    padding: 10px;
+    border: 1px solid var(--gray-gray-4, #CED4DA);
+    width: 519px;
+    
+}
+.regpage .info .btn {
+    width: 110px;
+    margin-top: 30px;
+    padding: 14px;
+    border-radius: 100px;
+    background: var(--primaty-cyan-dark, #2B788B);
+    color: #FFF;
+    text-align: center;
+    font: 700 16px Montserrat;
+}
+
+
+
+.regpage .img {
+    background-image: url(./assets/image\ 33\ \(1\).png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 481px;
+    height: 320px;
+}
