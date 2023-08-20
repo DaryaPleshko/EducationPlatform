@@ -6,7 +6,7 @@ function RegPage() {
     return (
         <div>
         <Header />
-
+    
         <div className={style.regpage}>
             <div className={style.info}>
                 <h1>Sign Up</h1>
