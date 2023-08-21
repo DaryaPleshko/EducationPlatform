@@ -14,7 +14,7 @@ function RegPage() {
                 <div > <input  placeholder="surname" /></div>
                 <div > <input  placeholder="e-mail" /></div>
                 <div> <input  placeholder="password" /></div>
-                <div className={style.btn}>Sign Up</div>
+                <div className={style.btn}>Sign Up</div>    
             </div>
             <div className={style.img}></div>
         </div>
