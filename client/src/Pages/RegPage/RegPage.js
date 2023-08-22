@@ -24,5 +24,5 @@ function RegPage() {
     </div>
     );
 }
-
+    
 export default RegPage;
